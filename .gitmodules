@@ -1,0 +1,6 @@
+[submodule "docker-jitsi-meet"]
+	path = docker-jitsi-meet
+	url = https://github.com/jitsi/docker-jitsi-meet.git
+[submodule "owncloud"]
+	path = owncloud
+	url = https://github.com/owncloud-docker/server.git
