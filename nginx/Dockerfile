@@ -9,9 +9,12 @@ FROM ubuntu:18.04
 
 LABEL container=hatorade-nginx
 # Install Nginx.
-RUN \
-  apt-get update && \
-  apt-get install -y nginx wget
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+
+RUN apt-get install -y nginx wget dnsutils
+
 RUN  rm -rf /var/lib/apt/lists/* && \
   chown -R www-data:www-data /var/lib/nginx
 

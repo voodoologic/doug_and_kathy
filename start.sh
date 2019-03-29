@@ -1,8 +1,9 @@
-#!/bin/bash
+docker kill $(docker ps -q -a)
+docker rm $(docker ps -q -a)
 docker-compose \
-  -f ${PWD}/docker-jitsi-meet/docker-compose.yml \
-  -f ${PWD}/docker-jitsi-meet/jigasi.yml \
+  -p doug_and_kathy \
+  -f ./docker-jitsi-meet/docker-compose.yml \
   -f ${PWD}/nginx/docker-compose.yml \
-  --log-level DEBUG \
-  up
+  up -d \
+  --force-recreate \
 
