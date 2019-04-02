@@ -1,6 +1,6 @@
 [submodule "owncloud"]
 	path = owncloud
-	url = https://github.com/owncloud-docker/server.git
+	url = git@github.com:voodoologic/server.git
 [submodule "docker-jitsi-meet"]
 	path = docker-jitsi-meet
-	url = https://github.com/jitsi/docker-jitsi-meet.git
+	url = git@github.com:voodoologic/docker-jitsi-meet.git
