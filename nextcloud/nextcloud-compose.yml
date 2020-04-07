@@ -9,6 +9,7 @@ services:
       - PGID=1000
     volumes:
       - /mnt/layer4_external/Nextcloud/data:/data
+      - ./config.php:/config
     ports:
       - 443:443
     restart: unless-stopped
