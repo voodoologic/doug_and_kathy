@@ -1,3 +1,4 @@
+---
 version: '3.1'
 
 services:
@@ -7,9 +8,7 @@ services:
     container_name: nginx_proxy
     build: ./
     volumes:
-      - ${PWD}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - ${PWD}/nginx/nginx.nextcloud.conf:/etc/nginx/nginx.conf:ro
 
     ports:
       - "80:80"
