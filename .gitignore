@@ -51,3 +51,4 @@ build-iPhoneSimulator/
 .env
 *.swp
 *.swo
+.env*
