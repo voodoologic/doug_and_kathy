@@ -1,0 +1,22 @@
+version: '3.7'
+
+volumes:
+  postges_files:
+    driver: local
+
+services:
+  hatorade_postgres:
+    build: $PWD/postgres-hatorade/
+    container_name: hatorade-postgres
+    restart: unless-stopped
+    env_file:
+      - ../.env_postgres
+    volumes:
+      - postgres_files:/var/lib/postgresql
+    ports:
+      - 5432:5432
+    networks:
+      postgres_network:
+
+networks:
+  postgres_network:
