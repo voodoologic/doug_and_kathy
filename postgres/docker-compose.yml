@@ -6,8 +6,8 @@ volumes:
 
 services:
   hatorade_postgres:
-    build: $PWD/postgres-hatorade/
-    container_name: hatorade-postgres
+    build: $PWD/postgres/
+    container_name: postgres
     restart: unless-stopped
     env_file:
       - ../.env_postgres

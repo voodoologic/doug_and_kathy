@@ -6,8 +6,8 @@ volumes:
 
 services:
   hatorade_redis:
-    build: $PWD/redis-hatorade/
-    container_name: hatorade-redis
+    build: $PWD/redis/
+    container_name: redis
     env_file:
       - ../.env_redis
     restart: always
