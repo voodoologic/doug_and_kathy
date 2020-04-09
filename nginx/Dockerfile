@@ -7,7 +7,7 @@
 # Pull base image.
 FROM ubuntu:18.04
 
-LABEL container=hatorade-nginx
+LABEL container=nginx
 # Install Nginx.
 ENV DEBIAN_FRONTEND=noninteractive
 

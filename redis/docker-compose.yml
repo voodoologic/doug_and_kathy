@@ -5,7 +5,7 @@ volumes:
     driver: local
 
 services:
-  hatorade_redis:
+  redis:
     build: $PWD/redis/
     container_name: redis
     env_file:

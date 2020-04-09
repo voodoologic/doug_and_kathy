@@ -1,16 +1,22 @@
 version: '3.7'
 
 volumes:
-  postges_files:
+  postgres_files:
     driver: local
 
 services:
-  hatorade_postgres:
-    build: $PWD/postgres/
-    container_name: postgres
-    restart: unless-stopped
+  postgres:
     env_file:
       - ../.env_postgres
+    build:
+      context: $PWD/postgres/
+      args:
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASS=${POSTGRES_PASS}
+        - POSTGRES_DB=${POSTGRES_DB}
+        - POSTGRES_VERSION=${POSTGRES_VERSION}
+    container_name: postgres
+    restart: unless-stopped
     volumes:
       - postgres_files:/var/lib/postgresql
     ports:
