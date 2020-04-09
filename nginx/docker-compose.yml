@@ -3,23 +3,18 @@ version: '3.1'
 
 services:
 
-  nginx_proxy:
+  nginx:
     # image: nginx:latest
-    container_name: nginx_proxy
+    container_name: nginx
     build: ./
     volumes:
-      - ${PWD}/nginx/cloud_nginx.conf:/etc/nginx/nginx.conf:ro
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - ${PWD}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - ./fullchain.pem:/etc/letsencrypt/live/dougandkathy.com/fullchain.pem:ro
+      - ./privkey.pem:/etc/letsencrypt/live/dougandkathy.com/privkey.pem:ro
 
     ports:
       - "80:80"
       - "443:443"
-    # depends_on:
-    #   - web
     command: /bin/bash -c "exec nginx -g 'daemon off;'"
-    networks:
-      reverse_proxy:
 
-networks:
-  reverse_proxy:

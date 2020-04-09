@@ -3,16 +3,12 @@ version: '3.7'
 services:
   certbot:
     image: certbot/certbot
+    container_name: certbot
+    stdin_open: true
+    tty: true
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
-    cmd: |
-      quay.io/letsencrypt/letsencrypt:latest \
-        certonly \
-        -d dailyprime.me \
-        -d *.dailyprime.me \
-        --manual \
-        --preferred-challenges dns \
-        --server https://acme-v02.api.letsencrypt.org/directory
+    command:  certonly  -d dougandkathy.com -d *.dougandkathy.com
 networks:
   nginx_network:
