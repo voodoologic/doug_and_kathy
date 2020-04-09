@@ -1,1 +1,7 @@
+# start.sh <resource>
+./start.sh $1
+# kill all docker images
+docker kill $(docker ps -qa)
+# rm all docker images
 docker rm $(docker ps -qa)
+
