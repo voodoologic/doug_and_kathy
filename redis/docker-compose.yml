@@ -1,0 +1,21 @@
+version: '3.7'
+
+volumes:
+  redis_files:
+    driver: local
+
+services:
+  hatorade_redis:
+    build: $PWD/redis-hatorade/
+    container_name: hatorade-redis
+    env_file:
+      - ../.env_redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_files:/var/lib/redis
+    networks:
+      redis_network:
+networks:
+  redis_network:
